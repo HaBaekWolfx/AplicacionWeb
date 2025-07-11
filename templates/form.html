@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if estudiante %}Editar{% else %}Crear{% endif %} Estudiante</title>
+</head>
+<body>
+    <h1>{% if estudiante %}Editar{% else %}Crear{% endif %} Estudiante</h1>
+    <form method="POST">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" value="{{ estudiante.nombre if estudiante else '' }}" required><br><br>
+        <label>Matrícula:</label>
+        <input type="text" name="matricula" value="{{ estudiante.matricula if estudiante else '' }}" required><br><br>
+        <label>Carrera:</label>
+        <input type="text" name="carrera" value="{{ estudiante.carrera if estudiante else '' }}" required><br><br>
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="{{ url_for('index') }}">Volver</a>
+</body>
+</html>
